@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+
+    <style>
+        /* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px;
+    color: white;
+}
+
+.brand-image img {
+    width: 50px; /* Adjust the size as needed */
+    height: 50px; /* Adjust the size as needed */
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.navbar-links ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar-links li {
+    margin: 0 15px;
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.toggle-button {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.toggle-button .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .navbar-links {
+        display: none;
+        width: 100%;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .toggle-button {
+        display: flex;
+    }
+
+    .navbar-links ul {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .navbar-links li {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="brand-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4v9a3wYeRB6oZASQIoj60RSD0witdqN9QgG-G8YF6iA&s" alt="Brand">
+        </div>
+        <a href="#" class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+        <div class="navbar-links">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- <script src="script.js"></script>  -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const toggleButton = document.querySelector('.toggle-button');
+    const navbarLinks = document.querySelector('.navbar-links');
+
+    // Add event listener to toggle button to show/hide navbar links on click
+    toggleButton.addEventListener('click', () => {
+        navbarLinks.classList.toggle('active');
+    });
+});
+
+    </script>
+</body>
+</html>
